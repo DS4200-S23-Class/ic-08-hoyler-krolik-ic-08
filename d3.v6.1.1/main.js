@@ -27,10 +27,10 @@ d3.csv("data/data.csv").then((data) => {
     const yScaleBar = d3.scaleLinear().range([BAR_HEIGHT, 0]);
 
     xScaleBar.domain(data.map((d) => {
-        return d.category
+        return d.Category
     }));
     yScaleBar.domain([0, d3.max(data, (d) => {
-        return d.amount
+        return d.Value
     })])
 
     FRAME2.selectAll("bars")
@@ -38,14 +38,14 @@ d3.csv("data/data.csv").then((data) => {
         .enter().append("rect")
         .attr("class", "bar")
         .attr("x", (d) => {
-            return (xScaleBar(d.category) + MARGINS.left)
+            return (xScaleBar(d.Category) + MARGINS.left)
         })
         .attr("y", (d) => {
-            return ( MARGINS.left + yScaleBar(d.amount))
+            return ( MARGINS.left + yScaleBar(d.Value))
         })
         .attr("width", xScaleBar.bandwidth())
         .attr("height", (d) => {
-            return BAR_HEIGHT - yScaleBar(d.amount)
+            return BAR_HEIGHT - yScaleBar(d.Value)
         });
 
     FRAME2.append("g")
@@ -72,7 +72,7 @@ d3.csv("data/data.csv").then((data) => {
 
     // mouse move
     function handleMouseMove(event, d){
-        TOOLTIP2.html("Category: " + d.category + "<br>Amount: " + d.amount)
+        TOOLTIP2.html("Category: " + d.Vategory + "<br>Amount: " + d.Value)
             .style("left", (event.pageX + 10) + "px")
             .style("top", (event.pageY - 50) + "px");
     }
