@@ -19,7 +19,7 @@ const BAR_HEIGHT = FRAME_HEIGHT - MARGINS.top - MARGINS.bottom;
 const BAR_WIDTH = FRAME_WIDTH - MARGINS.left - MARGINS.right;
 
 // read in bar chart data
-d3.csv("data.csv").then((data) => {
+d3.csv("data/data.csv").then((data) => {
 
     console.log((data));
 
